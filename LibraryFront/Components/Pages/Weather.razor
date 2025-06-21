@@ -1,15 +1,18 @@
 ﻿@page "/weather"
 @attribute [StreamRendering]
 
-<PageTitle>Weather</PageTitle>
+<PageTitle>Книги</PageTitle>
 
-<h1>Weather</h1>
+<h1>Найденные книги</h1>
 
-<p>This component demonstrates showing data.</p>
 
 @if (forecasts == null)
 {
-    <p><em>Loading...</em></p>
+    <p><em></em></p>
+}
+else if (forecasts.Length == 0)
+{
+    <p><em> Нет книги с таким названием :( </em></p>
 }
 else
 {
