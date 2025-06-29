@@ -1,5 +1,6 @@
 @page "/Books"
 @rendermode InteractiveServer
+@inject HttpClient client
 
 <PageTitle>Книги</PageTitle>
 
@@ -42,10 +43,16 @@
     private Book?[] books;
 
 
-    // Этот метод будет вызывать книгу с сервера на Бэке TODO: Запрос туда сделать через HttpClient
+    // TODO: Этот метод будет вызывать книгу с сервера на Бэке TODO: Запрос туда сделать через HttpClient
     private async Task? GetBooksFromServer()
     {
-        return;
+        var response = await client.GetAsync("/api/books");
+        if (response.IsSuccessStatusCode)
+        {
+            var books = await response.Content.ReadFromJsonAsync<Book[]>();
+            return books;
+        }
+        return null;
     }
 
     // При запуске сраницы будет вызываться этот метод

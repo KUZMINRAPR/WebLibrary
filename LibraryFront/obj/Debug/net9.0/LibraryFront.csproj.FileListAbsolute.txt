@@ -65,8 +65,6 @@ C:\Users\Aurora\Desktop\Файлы Миши\C# Projects\Library management syste
 C:\Users\Aurora\Desktop\Файлы Миши\C# Projects\Library management system\LibraryFront\obj\Debug\net9.0\compressed\ezkx0mziu4-h1s4sie4z3.gz
 C:\Users\Aurora\Desktop\Файлы Миши\C# Projects\Library management system\LibraryFront\obj\Debug\net9.0\compressed\s98bfz9htw-63fj8s7r0e.gz
 C:\Users\Aurora\Desktop\Файлы Миши\C# Projects\Library management system\LibraryFront\obj\Debug\net9.0\compressed\0sypr6pi3n-0j3bgjxly4.gz
-C:\Users\Aurora\Desktop\Файлы Миши\C# Projects\Library management system\LibraryFront\obj\Debug\net9.0\compressed\5qxnlgqkbj-a9ppl8rilr.gz
-C:\Users\Aurora\Desktop\Файлы Миши\C# Projects\Library management system\LibraryFront\obj\Debug\net9.0\compressed\i4k7xmu43a-a9ppl8rilr.gz
 C:\Users\Aurora\Desktop\Файлы Миши\C# Projects\Library management system\LibraryFront\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\Aurora\Desktop\Файлы Миши\C# Projects\Library management system\LibraryFront\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\Aurora\Desktop\Файлы Миши\C# Projects\Library management system\LibraryFront\obj\Debug\net9.0\staticwebassets.development.json
@@ -76,3 +74,6 @@ C:\Users\Aurora\Desktop\Файлы Миши\C# Projects\Library management syste
 C:\Users\Aurora\Desktop\Файлы Миши\C# Projects\Library management system\LibraryFront\obj\Debug\net9.0\LibraryFront.pdb
 C:\Users\Aurora\Desktop\Файлы Миши\C# Projects\Library management system\LibraryFront\obj\Debug\net9.0\LibraryFront.genruntimeconfig.cache
 C:\Users\Aurora\Desktop\Файлы Миши\C# Projects\Library management system\LibraryFront\obj\Debug\net9.0\ref\LibraryFront.dll
+C:\Users\Aurora\Desktop\Файлы Миши\C# Projects\Library management system\LibraryFront\obj\Debug\net9.0\compressed\oyn8yeqnpx-wby9f02ly5.gz
+C:\Users\Aurora\Desktop\Файлы Миши\C# Projects\Library management system\LibraryFront\obj\Debug\net9.0\compressed\5qxnlgqkbj-9r0nwrld7w.gz
+C:\Users\Aurora\Desktop\Файлы Миши\C# Projects\Library management system\LibraryFront\obj\Debug\net9.0\compressed\i4k7xmu43a-9r0nwrld7w.gz

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "YcXC5/JPT/s=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Aurora\\Desktop\\Файлы Миши\\C# Projects\\Library management system\\LibraryBack\\LibraryBack.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Aurora\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.6\\microsoft.aspnetcore.openapi.9.0.6.nupkg.sha512",
+    "C:\\Users\\Aurora\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
