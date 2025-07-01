@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("094982fa-12de-41db-9c9b-c435d3907ffe")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("LibraryBack")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+95bd891a5b0eceae773741d5d624b1fe539970d5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+31544bf4523653ddfe8fc8c0420e3d94e36a24b5")]
 [assembly: System.Reflection.AssemblyProductAttribute("LibraryBack")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LibraryBack")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
