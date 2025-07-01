@@ -74,6 +74,6 @@ C:\Users\Aurora\Desktop\Файлы Миши\C# Projects\Library management syste
 C:\Users\Aurora\Desktop\Файлы Миши\C# Projects\Library management system\LibraryFront\obj\Debug\net9.0\LibraryFront.pdb
 C:\Users\Aurora\Desktop\Файлы Миши\C# Projects\Library management system\LibraryFront\obj\Debug\net9.0\LibraryFront.genruntimeconfig.cache
 C:\Users\Aurora\Desktop\Файлы Миши\C# Projects\Library management system\LibraryFront\obj\Debug\net9.0\ref\LibraryFront.dll
-C:\Users\Aurora\Desktop\Файлы Миши\C# Projects\Library management system\LibraryFront\obj\Debug\net9.0\compressed\oyn8yeqnpx-wby9f02ly5.gz
 C:\Users\Aurora\Desktop\Файлы Миши\C# Projects\Library management system\LibraryFront\obj\Debug\net9.0\compressed\5qxnlgqkbj-9r0nwrld7w.gz
 C:\Users\Aurora\Desktop\Файлы Миши\C# Projects\Library management system\LibraryFront\obj\Debug\net9.0\compressed\i4k7xmu43a-9r0nwrld7w.gz
+C:\Users\Aurora\Desktop\Файлы Миши\C# Projects\Library management system\LibraryFront\obj\Debug\net9.0\compressed\oyn8yeqnpx-r5anfsj99f.gz

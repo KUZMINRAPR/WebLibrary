@@ -1,5 +1,6 @@
-@page "/Books"
-@rendermode InteractiveServer
+@using LibraryFront.Components.Models;
+
+@page "/books"
 @inject HttpClient client
 
 <PageTitle>Книги</PageTitle>
@@ -39,12 +40,41 @@
         
 </table>
 
-@code {
-    private Book?[] books;
+<h2>Если вы хотите добавить книгу, то напишите сюда её данные</h2>
 
+<div>
+    <label for="bookTitle">Название книги</label>
+    <InputText @bind-Value="newBook.Title" class="form-control" />
+</div>
+<div>
+    <label for="bookAuthor">Автор книги</label>
+    <InputText @bind-Value="newBook.Author" class="form-control" />
+</div>
+<div>
+    <label for="bookDescription">Описание книги</label>
+    <InputTextArea @bind-Value="newBook.Description" class="form-control" />
+</div>
+<div>
+    <label for="bookImageUrl">Ссылка на изображение книги</label>
+    <InputText @bind-Value="newBook.ImageUrl" class="form-control" />
+</div>
+
+<div>
+    <button class="btn btn-primary" @onclick="AddBook">Добавить книгу</button>
+</div>
+
+@code {
+    private Book?[] books = Array.Empty<Book>();
+    private Book newBook = new Book();
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Получаем книги с сервера
+        books = await GetBooksFromServer();
+    }
 
     // TODO: Этот метод будет вызывать книгу с сервера на Бэке TODO: Запрос туда сделать через HttpClient
-    private async Task? GetBooksFromServer()
+    private async Task<Book[]?> GetBooksFromServer()
     {
         var response = await client.GetAsync("/api/books");
         if (response.IsSuccessStatusCode)
@@ -54,18 +84,12 @@
         }
         return null;
     }
-
-    // При запуске сраницы будет вызываться этот метод
-    protected override async Task OnInitializedAsync()
-    {
-        GetBooksForTest();
-    }
     
     // Пока у меня нет сервера, я буду использовать этот метод для получения книг
     // TODO: Если я захочу дальше апгрейдить этот проект надо будет добавить делегат для возможности различных способов получения книг
-    internal void GetBooksForTest()
+    internal Book[] GetBooksForTest()
     {
-        books = new Book?[]
+        return new Book[]
         {
             new Book { Title = "Братья Карамазовы", Author = "Федор Достоевский", 
                 Description  = "Роман о нравственном выборе, свободе и ответственности"},
@@ -76,12 +100,14 @@
         };
     }
 
-
-    // Сделал не null потому что потом я думаю бы страшно ебался с null
-    internal class Book {
-        public string Title { get; init; } = "Базовое название книги";
-        public string Author { get; init; } = "Автор книги";
-        public string? Description {get; set;} = null;
-        public string? ImageUrl { get; set; } = null;
+    private async Task AddBook()
+    {
+        var response = await client.PostAsJsonAsync("/api/books", newBook);
+        if (response.IsSuccessStatusCode)
+        {
+            books.Append(newBook);
+            newBook = new Book(); // Сбросить форму после добавления
+        }
     }
+
 }
