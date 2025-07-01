@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LibraryBack")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3d57f89cc4e70b6fdd2501f602440e24d675eede")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+95bd891a5b0eceae773741d5d624b1fe539970d5")]
 [assembly: System.Reflection.AssemblyProductAttribute("LibraryBack")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LibraryBack")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
