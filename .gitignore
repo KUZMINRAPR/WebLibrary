@@ -1,6 +1,45 @@
-.\LibraryFront\bin
-.\LibraryFront\obj
-.\LibraryBack\bin
-.\LibraryBack\obj
-.fake
-.vscode
+# Build results
+./LibraryFront/bin/
+./LibraryBack/bin/
+./LibraryFront/obj/
+./LibraryBack/obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code
+.vscode/
+
+# Rider
+.idea/
+
+# Visual Studio
+.vs/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Others
+*.dbmdl
+*.log
+TestResults/
+*.nupkg
+*.snupkg
+*.cache
+*.pdb
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Dotnet watch/EF
+**/Properties/launchSettings.json
+
+# Local secrets
+secrets.json
+
+# Blazor publish artifacts
+wwwroot/dist/
