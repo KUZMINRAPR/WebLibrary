@@ -6,9 +6,20 @@ builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("AllowBlasor", builder =>
+        {
+            builder.WithOrigins("https://localhost:5001")
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+        });
+    }
+);
 
 
 var app = builder.Build();
+app.UseCors("AllowBlasor");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

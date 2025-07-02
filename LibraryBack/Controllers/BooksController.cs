@@ -21,9 +21,10 @@ public class BooksController : Controller
         return await context.Books.ToListAsync();
     }
     [HttpPost]
-    public async Task<int> CreateBook(Book book)
+    public async Task<ActionResult<Book>> CreateBook([FromBody] Book book)
     {
         await context.Books.AddAsync(book);
-        return await context.SaveChangesAsync();
+        await context.SaveChangesAsync();
+        return CreatedAtAction(nameof(GetBook), new { author = book.Author, title = book.Title }, book);
     }
 }

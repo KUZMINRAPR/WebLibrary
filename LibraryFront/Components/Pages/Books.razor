@@ -1,4 +1,5 @@
 @using LibraryFront.Components.Models;
+@rendermode InteractiveServer
 
 @page "/books"
 @inject HttpClient client
@@ -42,26 +43,27 @@
 
 <h2>Если вы хотите добавить книгу, то напишите сюда её данные</h2>
 
-<div>
-    <label for="bookTitle">Название книги</label>
-    <InputText @bind-Value="newBook.Title" class="form-control" />
-</div>
-<div>
-    <label for="bookAuthor">Автор книги</label>
-    <InputText @bind-Value="newBook.Author" class="form-control" />
-</div>
-<div>
-    <label for="bookDescription">Описание книги</label>
-    <InputTextArea @bind-Value="newBook.Description" class="form-control" />
-</div>
-<div>
-    <label for="bookImageUrl">Ссылка на изображение книги</label>
-    <InputText @bind-Value="newBook.ImageUrl" class="form-control" />
-</div>
 
-<div>
-    <button class="btn btn-primary" @onclick="AddBook">Добавить книгу</button>
+// TODO: Разобраться почему не работает вызов метода AddBook
+
+<div class="mb-3">
+    <label for="title" class="form-label">Название</label>
+    <InputText id="title" class="form-control" @bind-Value="newBook.Title" />
 </div>
+<div class="mb-3">
+    <label for="author" class="form-label">Автор</label>
+    <InputText id="author" class="form-control" @bind-Value="newBook.Author" />
+</div>
+<div class="mb-3">
+    <label for="description" class="form-label">Описание</label>
+    <InputTextArea id="description" class="form-control" @bind-Value="newBook.Description" />
+</div>
+<div class="mb-3">
+    <label for="imageUrl" class="form-label">URL изображения</label>
+    <InputText id="imageUrl" class="form-control" @bind-Value="newBook.ImageUrl" />
+</div>
+<button class="btn btn-primary" @onclick="AddBookToServer">Добавить книгу</button>
+
 
 @code {
     private Book?[] books = Array.Empty<Book>();
@@ -73,10 +75,9 @@
         books = await GetBooksFromServer();
     }
 
-    // TODO: Этот метод будет вызывать книгу с сервера на Бэке TODO: Запрос туда сделать через HttpClient
     private async Task<Book[]?> GetBooksFromServer()
     {
-        var response = await client.GetAsync("/api/books");
+        var response = await client.GetAsync("api/books");
         if (response.IsSuccessStatusCode)
         {
             var books = await response.Content.ReadFromJsonAsync<Book[]>();
@@ -100,14 +101,21 @@
         };
     }
 
-    private async Task AddBook()
+    private async Task AddBookToServer()
     {
-        var response = await client.PostAsJsonAsync("/api/books", newBook);
+        var response = await client.PostAsJsonAsync($"/api/books", newBook);
+        Console.WriteLine($"Content {response.Content}");
         if (response.IsSuccessStatusCode)
         {
-            books.Append(newBook);
+            books = await GetBooksFromServer();
             newBook = new Book(); // Сбросить форму после добавления
         }
+        else
+        {
+            var errorMessage = await response.Content.ReadAsStringAsync();
+            Console.WriteLine($"Ошибка при добавлении книги: {errorMessage}");
+        }
+        
     }
 
 }

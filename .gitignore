@@ -2,3 +2,5 @@
 .\LibraryFront\obj
 .\LibraryBack\bin
 .\LibraryBack\obj
+.fake
+.vscode
