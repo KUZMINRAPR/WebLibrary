@@ -1,8 +1,10 @@
 # Build results
-./LibraryFront/bin/
-./LibraryBack/bin/
-./LibraryFront/obj/
-./LibraryBack/obj/
+bin/
+obj/
+
+*.db
+
+appsettings.Development.json
 
 # User-specific files
 *.user
@@ -43,3 +45,7 @@ secrets.json
 
 # Blazor publish artifacts
 wwwroot/dist/
+
+*appsettings.json
+*launchSettings.json
+.fake

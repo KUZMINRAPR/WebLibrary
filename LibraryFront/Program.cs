@@ -1,3 +1,4 @@
+using LibraryFront;
 using LibraryFront.Components;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,7 +1,7 @@
 using LibraryFront.Components.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibraryBack.DataBase;
+namespace LibraryBack.Data;
 
 class LibraryContext : DbContext
 {
