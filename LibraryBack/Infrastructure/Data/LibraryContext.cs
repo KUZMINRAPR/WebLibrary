@@ -1,4 +1,4 @@
-using LibraryFront.Components.Models;
+using LibraryCommon;
 using Microsoft.EntityFrameworkCore;
 
 namespace LibraryBack.Data;

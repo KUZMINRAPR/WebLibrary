@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: LibraryBack/Dockerfile
+    image: libraryback:latest
+    ports:
+      - "5001:5001"
+    
+  frontend:
+    build:
+      context: .
+      dockerfile: LibraryFront/Dockerfile
+    image: libraryfront:latest
+    ports:
+      - "5108:5108"

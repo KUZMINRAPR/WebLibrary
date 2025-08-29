@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using LibraryFront.Components.Models;
+using LibraryCommon;
 using LibraryBack.Data;
 using Microsoft.EntityFrameworkCore;
 
