@@ -3,6 +3,7 @@ bin/
 obj/
 
 *.db
+LibraryFront.sln
 
 appsettings.Development.json
 
@@ -13,7 +14,7 @@ appsettings.Development.json
 *.sln.docstates
 
 # VS Code
-.vscode/
+.vscode
 
 # Rider
 .idea/

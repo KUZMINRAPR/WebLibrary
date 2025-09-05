@@ -7,11 +7,15 @@ builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// URL из appsettings.json
+var allowedOrigins = builder.Configuration.GetSection("AllowedOrigins").Get<string[]>();
+
 builder.Services.AddCors(options =>
     {
-        options.AddPolicy("AllowBlasor", builder =>
+        options.AddPolicy("AllowBlasor", policyBuilder =>
         {
-            builder.WithOrigins("https://localhost:5001")
+            policyBuilder.WithOrigins(allowedOrigins ?? Array.Empty<string>())
                 .AllowAnyMethod()
                 .AllowAnyHeader();
         });

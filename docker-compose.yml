@@ -1,18 +1,46 @@
 version: '3.9'
 
 services:
-  backend:
+  backend-release:
     build:
       context: .
       dockerfile: LibraryBack/Dockerfile
-    image: libraryback:latest
+      target: release
+    image: libraryback:release
+    container_name: backend-release
     ports:
       - "5001:5001"
+    profiles: ["release"]
+
+  backend-debug:
+    build:
+      context: .
+      dockerfile: LibraryBack/Dockerfile
+      target: debug
+    image: libraryback:debug
+    container_name: backend-debug
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./LibraryBack:/src/LibraryBack
+      - ./LibraryCommon:/src/LibraryCommon
+    profiles: ["debug"]
     
   frontend:
     build:
       context: .
       dockerfile: LibraryFront/Dockerfile
     image: libraryfront:latest
+    container_name: frontend
     ports:
       - "5108:5108"
+    # Переменные окружения для запуска без https, TODO: Потом перенести в отдельный контейнер frontend-debug
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - DOTNET_RUNNING_IN_CONTAINER=true
+      - DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true
+      - DOTNET_URLS=http://+:5108
+    volumes:
+      - ./LibraryFront:/src/LibraryFront
+      - ./LibraryCommon:/src/LibraryCommon
+    profiles: ["release", "debug"]

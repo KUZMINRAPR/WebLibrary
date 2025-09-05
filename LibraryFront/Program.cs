@@ -1,5 +1,5 @@
 using LibraryFront;
-using LibraryFront.Components;
+using Microsoft.AspNetCore.Hosting.StaticWebAssets;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.WebHost.UseUrls("http://0.0.0.0:5108");
@@ -10,9 +10,11 @@ builder.Services.AddRazorComponents()
 
 // Add to builder HttpClient
 builder.Services.AddHttpClient();
+
+var applicationUrl = "http://backend-debug:5001"; //TODO: get from appsettings.json
 builder.Services.AddScoped<HttpClient> (sp =>
 {
-    return new HttpClient { BaseAddress = new Uri("http://localhost:5108/") };
+    return new HttpClient { BaseAddress = new Uri(applicationUrl) };
 });
 
 var app = builder.Build();
@@ -27,6 +29,10 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseStaticFiles();
+
+// Нужно для того, чтобы подкачивались статические файлы при dotnet watch
+StaticWebAssetsLoader.UseStaticWebAssets(builder.Environment, builder.Configuration);
 
 app.UseAntiforgery();
 
