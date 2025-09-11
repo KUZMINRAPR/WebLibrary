@@ -1,0 +1,25 @@
+@page "/books/add"
+@inject HttpClient client
+
+<div class="mb-3">
+    <label for="title" class="form-label">Название</label>
+    <InputText id="title" class="form-control" @bind-Value="newBook.Title" />
+</div>
+<div class="mb-3">
+    <label for="author" class="form-label">Автор</label>
+    <InputText id="author" class="form-control" @bind-Value="newBook.Author" />
+</div>
+<div class="mb-3">
+    <label for="description" class="form-label">Описание</label>
+    <InputTextArea id="description" class="form-control" @bind-Value="newBook.Description" />
+</div>
+<div class="mb-3">
+    <label for="imageUrl" class="form-label">URL изображения</label>
+    <InputText id="imageUrl" class="form-control" @bind-Value="newBook.ImageUrl" />
+</div>
+<button class="btn btn-primary" @onclick="AddBookToServer">Добавить книгу</button>
+
+<div>
+    <br />
+    <NavLink class="btn btn-succes" href="/books">Назад</NavLink>
+</div>
