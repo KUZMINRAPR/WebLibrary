@@ -16,6 +16,8 @@ builder.Services.AddSwaggerGen();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
+Console.WriteLine(AppContext.BaseDirectory);
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(connectionString));
 
@@ -31,7 +33,7 @@ builder.Services.AddMediatR(cfg => {
 
 builder.Services.AddCors(options =>
     {
-        options.AddPolicy("AllowBlasor", policyBuilder =>
+        options.AddPolicy("AllowFrontend", policyBuilder =>
         {
             policyBuilder.WithOrigins(allowedOrigins ?? Array.Empty<string>())
                 .AllowAnyMethod()
@@ -40,7 +42,8 @@ builder.Services.AddCors(options =>
     }
 );
 var app = builder.Build();
-//app.UseCors("AllowBlasor"); не помню зачем поэтому пока что выключено
+
+app.UseCors("AllowFrontend");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
