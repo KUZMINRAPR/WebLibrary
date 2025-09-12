@@ -1,9 +1,6 @@
 using System.Reflection;
-using Microsoft.EntityFrameworkCore;
-using WebLibrary.Application.Books.Handlers;
-using WebLibrary.Domain.Interfaces;
-using WebLibrary.Infrastructure.Persistence;
-using WebLibrary.Infrastructure.Repositories;
+using WebLibrary.Application;
+using WebLibrary.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,22 +11,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+// Подключаю логгирование
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+builder.Logging.AddDebug();
 
-Console.WriteLine(AppContext.BaseDirectory);
-
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(connectionString));
-
-// Регистрация репозитория
-builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddInfrastructure(builder.Configuration); // DI для Infrastructure
+builder.Services.AddApplication(); // DI для Application
 
 // URL из appsettings.json
 var allowedOrigins = builder.Configuration.GetSection("AllowedOrigins").Get<string[]>();
-builder.Services.AddMediatR(cfg => {
-    cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
-    cfg.RegisterServicesFromAssembly(typeof(GetBookByAuthorAndTitleQuery).Assembly);
-    });
 
 builder.Services.AddCors(options =>
     {

@@ -1,6 +1,17 @@
-﻿namespace WebLibrary.Application;
+﻿using System.Reflection;
+using Microsoft.Extensions.DependencyInjection;
 
-public class DependencyInjection
+namespace WebLibrary.Application;
+
+public static class DependencyInjection
 {
-
+    public static IServiceCollection AddApplication(this IServiceCollection services)
+    {
+        services.AddMediatR(cfg =>
+        {
+            cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+            cfg.RegisterServicesFromAssembly(typeof(GetBookByAuthorAndTitleQuery).Assembly);
+        });
+        return services;
+    }
 }
