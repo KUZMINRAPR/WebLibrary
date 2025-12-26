@@ -1,9 +1,9 @@
 using MediatR;
-using WebLibrary.Application.Books.DTOs;
 using WebLibrary.Domain.Interfaces;
+using WebLibrary.Shared.DTOs;
 
 namespace WebLibrary.Application.Books.Handlers;
-public class AddBookHandler : IRequestHandler<AddBookCommand>
+public class AddBookHandler : IRequestHandler<AddBookCommand, Guid>
 {
     private readonly IBookRepository _bookRepository;
 
@@ -12,8 +12,10 @@ public class AddBookHandler : IRequestHandler<AddBookCommand>
         _bookRepository = bookRepository;
     }
 
-    public async Task Handle(AddBookCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(AddBookCommand request, CancellationToken cancellationToken)
     {
         await _bookRepository.AddAsync(request.book.ToBook());
+        return request.book.Id;
     }
+
 }

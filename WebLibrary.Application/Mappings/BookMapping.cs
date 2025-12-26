@@ -1,4 +1,4 @@
-using WebLibrary.Application.Books.DTOs;
+using WebLibrary.Shared.DTOs;
 using WebLibrary.Domain.Entities;
 
 public static class BookMapping

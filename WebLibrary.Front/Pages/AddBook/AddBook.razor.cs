@@ -1,12 +1,12 @@
 using System.Net.Http.Json;
 using Microsoft.AspNetCore.Components;
-using WebLibrary.Front.DTOs;
+using WebLibrary.Shared.DTOs;
 
 namespace WebLibrary.Front.Pages.AddBook;
 
 public partial class AddBook : ComponentBase
 {
-    private BookDto newBook = new BookDto();
+    private BookDto? newBook;
 
     private async Task AddBookToServer()
     {
@@ -15,7 +15,7 @@ public partial class AddBook : ComponentBase
         // TODO: Че-то странно обработана ошибка, не лучше ли использовать try-catch или using?
         if (response.IsSuccessStatusCode)
         {
-            newBook = new BookDto(); // Сбросить форму после добавления
+            newBook = null; // Сбросить форму после добавления
         }
         else
         {

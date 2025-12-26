@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebLibrary.Front", "WebLibr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebLibrary.Infrastructure", "WebLibrary.Infrastructure\WebLibrary.Infrastructure.csproj", "{C6B4629A-293A-4F65-8CB0-2342B9F81D47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weblibrary.Shared", "Weblibrary.Shared\Weblibrary.Shared.csproj", "{D5C0B4CD-F5A2-4305-B2CE-A756FCE545E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebLibrary.Shared", "WebLibrary.Shared\WebLibrary.Shared.csproj", "{D5C0B4CD-F5A2-4305-B2CE-A756FCE545E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

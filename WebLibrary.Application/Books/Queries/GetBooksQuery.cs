@@ -1,3 +1,4 @@
 using MediatR;
+using WebLibrary.Shared.DTOs;
 
-public record GetBooksQuery : IRequest<List<WebLibrary.Application.Books.DTOs.BookDto>>;
+public record GetBooksQuery : IRequest<List<BookDto>>;

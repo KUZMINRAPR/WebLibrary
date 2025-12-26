@@ -1,5 +1,5 @@
 using MediatR;
-using WebLibrary.Application.Books.DTOs;
+using WebLibrary.Shared.DTOs;
 using WebLibrary.Domain.Interfaces;
 
 namespace WebLibrary.Application.Books.Handlers;

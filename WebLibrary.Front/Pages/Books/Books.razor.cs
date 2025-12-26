@@ -1,6 +1,6 @@
 using System.Net.Http.Json;
 using Microsoft.AspNetCore.Components;
-using WebLibrary.Front.DTOs;
+using WebLibrary.Shared.DTOs;
 
 
 namespace WebLibrary.Front.Pages.Books;

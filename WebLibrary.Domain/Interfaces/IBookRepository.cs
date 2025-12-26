@@ -5,6 +5,6 @@ public interface IBookRepository : IGetBookByAuthorAndTitle
 {
     Task<Book?> GetByIdAsync(Guid id);
     Task<List<Book>> GetAllBooksAsync();
-    Task AddAsync(Book book);
-    Task DeleteAsync(Book book);
+    Task AddAsync(Book book, CancellationToken cancellationToken = default);
+    Task DeleteAsync(Book book, CancellationToken cancellationToken = default);
 }

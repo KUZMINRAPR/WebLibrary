@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MediatR;
-using WebLibrary.Application.Books.DTOs;
+using WebLibrary.Shared.DTOs;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 
